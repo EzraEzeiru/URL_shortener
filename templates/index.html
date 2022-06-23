@@ -1,0 +1,16 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} URL SHORTENER {% endblock %}
+
+{% block content %}
+   <div>
+  {{ wtf.quick_form(form) }}
+   </div>
+{% if new_url: %}
+   <div>
+       <h1>Your shortened url: <a href="{{ url_for('go_to', url_code=new_url) }}"> http://ezz.ly/{{ new_url }}</a></h1>
+   </div>
+   <button>Copy Url</button>
+{% endif %}
+{% endblock %}
